@@ -1,0 +1,18 @@
+.navbar{
+   
+    width: 98%;
+
+    border-color: #c0c1bc;
+    border-style: solid;
+    padding-left: 40px;
+    padding-right: 40px;
+    font-weight: 700;
+    font-size: 20px;
+    
+}
+.mynavbartext{
+    margin-top: 15px;
+    margin-left: 15px;
+    
+}
+

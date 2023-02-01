@@ -1,0 +1,18 @@
+.columns{
+  background-color: #f4f5f8;
+
+  border-color: #c0c1bc;
+  border-style: solid;
+    
+    padding-left: 40px;
+    padding-right: 40px;
+    font-size: 20px;
+    width:100%;
+    align-items: center;
+}  
+.ater-text{
+  font-size: 20px;
+  text-align: center;
+  justify-content: center;
+
+}
