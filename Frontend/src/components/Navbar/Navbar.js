@@ -1,6 +1,6 @@
 import React from 'react'
 import logo from "../../img/bondeformlogo.png";
-import { Link } from "react-router-dom";
+
 import "./navbar.css"
 
 const Navbar = () => {
@@ -37,10 +37,9 @@ const Navbar = () => {
   
     <div id="navbarBasicExample" class="navbar-menu" className={`navbar-menu ${isActive ? "is-active" : ""}`}>
       <div class="navbar-start">
-        <a href="/" class="mynavbartext">
+        <a href="/" class="navbar-item">
           Start 
         </a>
-  
         <a href="/products" class="navbar-item">
           Produkter 
         </a>

@@ -44,7 +44,7 @@ const EditProduct = () => {
           "Content-type": "multipart/form-data",
         },
       });
-      navigate("/products");
+      navigate("/dashboard");
     } catch (error) {
       console.log(error);
     }
