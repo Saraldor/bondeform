@@ -14,14 +14,7 @@ const ProductList = () => {
     setProducts(response.data);
   };
 
-  const deleteProduct = async (productId) => {
-    try {
-      await axios.delete(`http://localhost:5000/products/${productId}`);
-      getProducts();
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  
 
   return (
     <div className="container mt-1">
