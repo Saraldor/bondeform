@@ -26,12 +26,11 @@ const Navbar = () => {
     <section className = "section">
     <div className ="container">
       <div className="center">
-       <img alt="logo"src={logo} width="500px"></img>
+       <img alt="logo"src={logo} width="400px"></img>
       
       </div>
     <nav className="navbar" role="navigation" aria-label="main navigation">
-    <div className="navbar-brand">
-  
+ 
       <a 
             onClick={() => {
               setisActive(!isActive);
@@ -45,7 +44,7 @@ const Navbar = () => {
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
       </a>
-    </div>
+
   
     <div id="navbarBasicExample" class="navbar-menu" className={`navbar-menu ${isActive ? "is-active" : ""}`}>
       <div class="navbar-start">
@@ -73,13 +72,9 @@ const Navbar = () => {
             <Link to="/login">Logga in
                 </Link>
                 </div>
-            
-    
                         </div>
                     </div>
-          </div>
-    
-      
+          </div>    
   </nav>
   </div>
 

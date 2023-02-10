@@ -45,7 +45,7 @@ margin: 20px;
     color: black;
     
   }
-  li{
-    display: flex;
-    flex-direction: column;
+  .h1{
+  font-size: 18px;
+font-weight: 800;
   }

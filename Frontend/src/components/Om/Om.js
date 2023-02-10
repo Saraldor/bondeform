@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import profil from "../../img/assets/profil.jpg";
 import "./om.css";
 const Om = () => {

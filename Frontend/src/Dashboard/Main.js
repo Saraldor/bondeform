@@ -3,14 +3,15 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { MdDelete} from "react-icons/md";
 import { RxUpdate } from "react-icons/rx";
-import { FaCaretDown } from "react-icons/fa";
-import "./indexDashboard.css";
+
+import "./index.css";
 
 import jwt_decode from "jwt-decode";
 import { useNavigate, Link } from "react-router-dom";
 
 const Main = () => {
-    const [name, setName] = useState("");
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('')
     const [token, setToken] = useState('');
     const [expire, setExpire] = useState('');
     const [users, setUsers] = useState([]);
@@ -27,6 +28,7 @@ const Main = () => {
             setToken(response.data.accessToken);
             const decoded = jwt_decode(response.data.accessToken);
             setName(decoded.name);
+            setEmail(decoded.email);
             setExpire(decoded.exp);
         } catch (error) {
             if (error.response) {
@@ -45,6 +47,7 @@ const Main = () => {
             setToken(response.data.accessToken);
             const decoded = jwt_decode(response.data.accessToken);
             setName(decoded.name);
+            setEmail(decoded.email);
             setExpire(decoded.exp);
         }
         return config;
@@ -109,17 +112,18 @@ const Main = () => {
         <div className="container">
             <div className="box">
             <div className="box">
+   
     <strong>Kontrollpanel</strong>
             <div class="buttons are-normal">
 <a href="/adminnews" className="button">Nyheter</a>
 <a href="/adminproduct" className="button">Produkter</a>
 <a href="/adminater" className="button">Återförsäljare</a>
 <a href="/adminater" className="button">Om mig</a>
+<div class="navbar-end"><div className="h1">{name}</div></div>
 </div>
-  
+
  
                 </div>
-                <h1><b>Välkommen: {name}</b></h1>
            <div className="columns">
         <div className="column is-half">
            <div className="box">
