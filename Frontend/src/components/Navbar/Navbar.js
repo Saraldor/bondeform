@@ -1,24 +1,36 @@
 import React from 'react'
-import logo from "../../img/bondeformlogo.png";
+import logo from "../../img/bondeform.png";
+import axios from 'axios';
+import { useNavigate, Link } from 'react-router-dom';
+import "./navbar.css";
 
-import "./navbar.css"
 
 const Navbar = () => {
 
     const [isActive, setisActive] = React.useState(false);
   
+    const history = useNavigate();
+  
+    const Logout = async () => {
+        try {
+            await axios.delete('http://localhost:5000/logout');
+            history("/");
+        } catch (error) {
+            console.log(error);
+        }
+    }
+  
     return (
 
-
+      
     <section className = "section">
     <div className ="container">
-       <span className = "title">
-      <img alt="logo"src={logo} width="20%"></img>
-       </span>
+      <div className="center">
+       <img alt="logo"src={logo} width="500px"></img>
+      
+      </div>
     <nav className="navbar" role="navigation" aria-label="main navigation">
     <div className="navbar-brand">
-    
-        
   
       <a 
             onClick={() => {
@@ -37,8 +49,9 @@ const Navbar = () => {
   
     <div id="navbarBasicExample" class="navbar-menu" className={`navbar-menu ${isActive ? "is-active" : ""}`}>
       <div class="navbar-start">
+
         <a href="/" class="navbar-item">
-          Start 
+         Start 
         </a>
         <a href="/products" class="navbar-item">
           Produkter 
@@ -57,16 +70,19 @@ const Navbar = () => {
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
+            <Link to="/login">Logga in
+                </Link>
+                </div>
             
-            <a class="button is-light">
-              Logga in
-            </a>
+    
+                        </div>
+                    </div>
           </div>
-        </div>
-      </div>
-    </div>
+    
+      
   </nav>
   </div>
+
       </section>
          
   )

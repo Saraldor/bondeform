@@ -52,17 +52,17 @@ const EditProduct = () => {
 
   return (
     <div className="container">
-    
-    <div className="columns is-centered mt-5">
-      <div className="column is-half">
+    <div className="box">
+    <div className="columns">
+      <div className="column is-full">
         <div className="box">
         <form onSubmit={updateProduct}>
           <div className="field">
-            <label className="title is-4">Produkt namn</label>
+            <label className="label">Produkt namn</label>
             <div className="control">
               <input
                 type="text"
-                className="input is-medium"
+                className="input"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder="Produkt namn"
@@ -70,7 +70,7 @@ const EditProduct = () => {
             </div>
           </div>
          
-            <label className="title is-4">Information</label>
+            <label className="label">Information</label>
             <div className="control">
               <textarea
                 rows="10"
@@ -82,11 +82,11 @@ const EditProduct = () => {
                 className="textarea is-info"
               />
             </div>
-            <label className="title is-4">Pris</label>
+            <label className="label">Pris</label>
             <div className="control">
               <input
                 type="text"
-                className="input is-medium"
+                className="input"
                 value={pris}
                 onChange={(e) => setPris(e.target.value)}
                 placeholder="Pris utan kr"
@@ -94,7 +94,7 @@ const EditProduct = () => {
             </div>
 
           <div className="field">
-            <label className="title is-4">Bild</label>
+            <label className="label">Bild</label>
             <div className="control">
               <div className="file">
                 <label className="file-label">
@@ -116,14 +116,15 @@ const EditProduct = () => {
 
           {preview ? (
             <figure>
-              <img src={preview} alt="Förhansgranska" />
+              <img className="image is-128x128"src={preview} alt="Förhansgranska" />
             </figure>
           ) : (
             ""
           )}
-
+<br/>
           <div className="field">
             <div className="control">
+             
               <button type="submit" className="button is-success">
                 Uppdater produkt
               </button>
@@ -132,6 +133,7 @@ const EditProduct = () => {
         </form>
         </div>
       </div>
+    </div>
     </div>
     </div>
   );

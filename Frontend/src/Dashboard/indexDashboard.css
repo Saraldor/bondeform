@@ -1,16 +1,4 @@
-.columns{
-background-color: #f4f5f8;
 
-    border-color: #c0c1bc;
-    border-style: solid;
-    padding-left: 40px;
-    padding-right: 40px;
-    font-size: 20px;
-    width:100%;
-    align-items: center;
-    justify-content: center; 
-    
-}
 .img{
   
   width:90% 
@@ -56,4 +44,8 @@ margin: 20px;
   .add{
     color: black;
     
+  }
+  li{
+    display: flex;
+    flex-direction: column;
   }

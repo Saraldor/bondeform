@@ -31,3 +31,17 @@ margin: 20px;
   margin-bottom: 20px;
   margin-top: 20px;
   }
+  table{
+  width: 100%;
+  }
+
+  .deletea{
+    color: red;
+  }
+  .update{
+    color: green;
+  }
+  .add{
+    color: black;
+    
+  }

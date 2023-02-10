@@ -1,13 +1,11 @@
 .navbar{
    
-    width: 98%;
-
-    border-color: #c0c1bc;
-    border-style: solid;
+    width: 100%;
+    border-radius: 10px;
     padding-left: 40px;
     padding-right: 40px;
     font-weight: 700;
-    font-size: 20px;
+    font-size: 18px;
     
 }
 .mynavbartext{
@@ -15,4 +13,8 @@
     margin-left: 15px;
     
 }
-
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

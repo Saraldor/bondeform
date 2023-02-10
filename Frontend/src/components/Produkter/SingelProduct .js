@@ -20,33 +20,34 @@ const SingelProduct = () => {
 
 
 
-    <div className="container">
-      <div className="columns is-centered mt-5">
+    <div className="container mt-1">
+            <div className="box">
+      <div className="columns">
         <div className="column is-half">
-          <figure className="image is-2by">
-            <img className="singel" src={product.url} alt="Image" />
-          </figure>
+         
+            <img className="image" src={product.url} alt="Image" />
+         
         </div>
 
-        <div className="columm is-half">
-          <div className="box">
-            <article class="media">
-              <div className="media-content">
-                <div className="title is-4">{product.name}</div>
-                <div className="content">{product.info}</div>
-               
+        <div class="column">
+              <div className="box">
+           <div>
+                <p className="title is-5">{product.name}</p>
+                <p>{product.info}</p>
+                <br/>
                 <div className="title is-5">Pris: {product.pris} kr</div>
-                <button class="button is-light"> Lägg i varukorgen</button><Link to="/products" className="button is-light">
+                <div className="space">
+               <Link to="/products" className="button is-light">
         Tillbaka
       </Link>
-              </div>
-            </article>
+      </div>
+      </div>
           </div>
 
         </div>
       </div>
     </div>
-
+</div>
 
   );
 };

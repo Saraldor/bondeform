@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
 import {FaUpload} from "react-icons/fa";
+
 import { useNavigate } from "react-router-dom";
-import "./products.css"
-const AddProduct = () => {
-  const [title, setTitle] = useState("");
-  const [info, setInfo] = useState("");
-  const [pris,setPris] = useState("");
+import "./News.css"
+const AddNews = () => {
+  const [news, setNews] = useState("");
+  const [text, setText] = useState("");
+
   const [file, setFile] = useState("");
   const [preview, setPreview] = useState("");
   const navigate = useNavigate();
@@ -17,15 +18,15 @@ const AddProduct = () => {
     setPreview(URL.createObjectURL(image));
   };
 
-  const saveProduct = async (e) => {
+  const saveNews = async (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("file", file);
-    formData.append("title", title);
-    formData.append("info", info);
-    formData.append("pris", pris);
+    formData.append("news", news);
+    formData.append("text", text);
+   
     try {
-      await axios.post("http://localhost:5000/products", formData, {
+      await axios.post("http://localhost:5000/news", formData, {
         headers: {
           "Content-type": "multipart/form-data",
         },
@@ -42,46 +43,36 @@ const AddProduct = () => {
     <div className="columns">
       <div className="column is-full">
         <div className="box">
-        <form onSubmit={saveProduct}>
+        <form onSubmit={saveNews}>
           <div className="field">
-            <label className="label">Titel</label>
+            <label className="label">Nyhet</label>
             <div className="control">
               <input
                 type="text"
                 className="input"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                placeholder="Namn på produkten"
+                value={news}
+                onChange={(e) => setNews(e.target.value)}
+                placeholder="Rubrik på nyheten"
               />
             </div>
-            <label className="label">Information</label>
+            <label className="label">Nyheten</label>
             <div>
+           
               <textarea
                 rows="10"
                 type="text"
                 cols="115"
-                value={info}
-                onChange={(e) => setInfo(e.target.value)}
+                value={text}
+                onChange={(e) => setText(e.target.value)}
                 placeholder=""
                 className="textarea is-info"
               />
             </div>
           </div>
-          <label className="label">Pris</label>
-            <div className="control">
-              <input
-                type="text"
-                className="input"
-                value={pris}
-                onChange={(e) => setPris(e.target.value)}
-                placeholder="Pris utan kr "
-               
-              />
-            </div>
         
 
           <div className="field">
-            <label className="label">Bild</label>
+            <label className="label">Bild till nyheten</label>
             <div className="control">
               <div className="file">
                 <label className="file-label">
@@ -103,16 +94,15 @@ const AddProduct = () => {
 
           {preview ? (
             <figure>
-              <img className="image is-128x128"src={preview} alt="förhansgranska" />
+              <img src={preview} alt="förhansgranska" />
             </figure>
           ) : (
             ""
           )}
-
           <div className="field">
             <div className="control">
               <button type="submit" className="button is-success">
-                Spara
+                Spara nyhet
               </button>
             </div>
           </div>
@@ -125,4 +115,4 @@ const AddProduct = () => {
   );
 };
 
-export default AddProduct;
+export default AddNews;
