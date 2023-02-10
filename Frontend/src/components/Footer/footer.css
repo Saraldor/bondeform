@@ -1,4 +1,7 @@
 .bottom{
 text-align: center;
-font-size: 20px;    
+font-size: 15px;    
+}
+.right{
+ align-items: end;   
 }

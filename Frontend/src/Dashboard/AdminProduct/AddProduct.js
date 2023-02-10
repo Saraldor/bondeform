@@ -38,23 +38,23 @@ const AddProduct = () => {
 
   return (
     <div className="container">
-    
-    <div className="columns is-centered mt-5">
-      <div className="column is-half">
+    <div className="box">
+    <div className="columns">
+      <div className="column is-full">
         <div className="box">
         <form onSubmit={saveProduct}>
           <div className="field">
-            <label className="title is-4">Titel</label>
+            <label className="label">Titel</label>
             <div className="control">
               <input
                 type="text"
-                className="input is-medium"
+                className="input"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder="Namn på produkten"
               />
             </div>
-            <label className="title is-4">Information</label>
+            <label className="label">Information</label>
             <div>
               <textarea
                 rows="10"
@@ -67,11 +67,11 @@ const AddProduct = () => {
               />
             </div>
           </div>
-          <label className="title is-4">Pris</label>
+          <label className="label">Pris</label>
             <div className="control">
               <input
                 type="text"
-                className="input is-medium"
+                className="input"
                 value={pris}
                 onChange={(e) => setPris(e.target.value)}
                 placeholder="Pris utan kr "
@@ -81,7 +81,7 @@ const AddProduct = () => {
         
 
           <div className="field">
-            <label className="title is-4">Bild</label>
+            <label className="label">Bild</label>
             <div className="control">
               <div className="file">
                 <label className="file-label">
@@ -103,7 +103,7 @@ const AddProduct = () => {
 
           {preview ? (
             <figure>
-              <img src={preview} alt="förhansgranska" />
+              <img className="image is-128x128"src={preview} alt="förhansgranska" />
             </figure>
           ) : (
             ""
@@ -119,6 +119,7 @@ const AddProduct = () => {
         </form>
       </div>
       </div>
+    </div>
     </div>
     </div>
   );

@@ -27,13 +27,7 @@
     height: 15px;
     text-align: center;
 }
-
-.box{
-    margin-top: 2%;
-}
-.card img{
-  margin-top: 10px; 
-}
-.title-head{
-    font-size: 18px;
+.space{
+    text-align: center;
+    padding-left: 10px;
 }

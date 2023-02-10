@@ -29,8 +29,14 @@ const AdminProduct = () => {
 
   return (
     <div className="container mt-1">
+      <div className="box">
       <div className="columns">
         <div className="column is-full">
+        <div className="navbar-start">
+            <div className="button">
+              <Link to="/dashboard"> Tillbaka</Link>
+            </div>
+          </div>
           <div className="navbar-end">
             <div className="button">
               <Link to="/add"> Lägg till en ny produkt</Link>
@@ -60,6 +66,7 @@ const AdminProduct = () => {
 
         </div>
       </div>
+    </div>
     </div>
   );
 };

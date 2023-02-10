@@ -1,20 +1,12 @@
-.columns{
-background-color: white ;
-
-    border-color: #c0c1bc;
-    border-style: solid;
-    padding-left: 40px;
-    padding-right: 40px;
-    font-size: 20px;
-    width:100%;
-    align-items: center;
-    justify-content: center;   
-    
+.centerImg{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .img{
-  border-color: #c0c1bc;
-  border-style: solid;
-  width:90% 
+
+  
+  width:80% 
 }
 .home{
   justify-content: center;

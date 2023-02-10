@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import profil from "../../img/assets/profil.jpg";
 import "./om.css";
 const Om = () => {
@@ -6,17 +6,17 @@ const Om = () => {
 
   return (
     <div className="container mt-1">
-   
+   <div className="box">
       <div className="columns">
         
           <div className="column is-half">
-             
+             <div className="box">
+              <div className="centerImg">
              <img className="img" alt ="profil"src={profil} width="60%" />
-           
              </div>
-             
-             <div className="column is-half">
-              <div className="home">
+             </div>
+             </div>
+             <div className="column">
               <div className="box">
 
 Bondeform är ett litet nystartat företag som drivs av mig Therése Bondesson. Jag har min gårdsateljé i Ronneby som ligger mitt i Blekinge. Där andas jag, lever och bygger. Jag strävar alltid efter att vara i nuet med varje lerklump och älskar att följa processen, därför blir alla mina produkter sin egen och alla är olika, precis som vi människor.
@@ -42,7 +42,7 @@ info@bondeform.se
        </div>
 
 </div>
-                
+       
     
   );
 };

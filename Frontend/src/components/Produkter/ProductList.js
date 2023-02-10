@@ -14,28 +14,27 @@ const ProductList = () => {
     setProducts(response.data);
   };
 
-  
 
   return (
     <div className="container mt-1">
-   
+   <div className="box">
       <div className="columns is-multiline mt-1">
         {products.map((product) => (
           <div className="column is-one-quarter" key={product.id}>
             <div className="card">
               <div className="card-image">
                 <figure className="image is-square">
-                  <img className="list"src={product.url} alt="Image" />
+                  <img className="image"src={product.url} alt="Image" />
                 </figure>
               </div>
               <div className="card-content">
                 <div className="media">
                   <div className="media-content">
-                    <p className="title is-4">{product.name}</p>
+                    <p className="title is-5">{product.name}</p>
                     
                     <p className="title is-6"> Pris: {product.pris} kr</p>
                   <div className ="card-footer-item">
-                     <Link to={`/singel/${product.id}`} className="button is-medium">
+                     <Link to={`/singel/${product.id}`} className="button is-small">
                   Läs mer
                 </Link>
                 </div>
@@ -49,6 +48,7 @@ const ProductList = () => {
           </div>
         ))}
       </div>
+    </div>
     </div>
   );
 };
