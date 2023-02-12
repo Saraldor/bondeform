@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import {FaUpload} from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import "./products.css"
 const AddProduct = () => {
   const [title, setTitle] = useState("");
@@ -54,19 +56,7 @@ const AddProduct = () => {
                 placeholder="Namn på produkten"
               />
             </div>
-            <label className="label">Information</label>
-            <div>
-              <textarea
-                rows="10"
-                type="text"
-                cols="115"
-                value={info}
-                onChange={(e) => setInfo(e.target.value)}
-                placeholder=""
-                className="textarea is-info"
-              />
-            </div>
-          </div>
+          
           <label className="label">Pris</label>
             <div className="control">
               <input
@@ -78,8 +68,21 @@ const AddProduct = () => {
                
               />
             </div>
-        
-
+            <label className="label">Information</label>
+            <div>
+              <CKEditor
+                editor= {ClassicEditor}
+                data={info}
+                
+    
+                value={info}
+                onChange={(e, editor) => {
+                  const data = editor.getData()
+                  setInfo(data)}}
+                  className="editor"
+              />
+            </div>
+          </div>
           <div className="field">
             <label className="label">Bild</label>
             <div className="control">
@@ -108,7 +111,7 @@ const AddProduct = () => {
           ) : (
             ""
           )}
-
+<br/>
           <div className="field">
             <div className="control">
               <button type="submit" className="button is-success">

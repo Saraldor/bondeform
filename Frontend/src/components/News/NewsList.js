@@ -32,7 +32,7 @@ const NewsList = () => {
             <div class="column">
               <div className="box">
                 <p className="title is-5">{news.news}</p>
-                <p> {news.text}</p>
+                <div dangerouslySetInnerHTML={{__html:news.text}} />
 
               </div>
 

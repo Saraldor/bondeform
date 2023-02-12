@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import {FaUpload} from "react-icons/fa";
-
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { useNavigate } from "react-router-dom";
 import "./News.css"
 const AddNews = () => {
@@ -56,19 +57,19 @@ const AddNews = () => {
               />
             </div>
             <label className="label">Nyheten</label>
-            <div>
-           
-              <textarea
-                rows="10"
-                type="text"
-                cols="115"
+            <div className="control">
+            <CKEditor
+                editor= {ClassicEditor}
+                data={text}
                 value={text}
-                onChange={(e) => setText(e.target.value)}
+                onChange={(e, editor) => {
+                  const data = editor.getData()
+                  setText(data)}}  
                 placeholder=""
-                className="textarea is-info"
+                className="editor"
               />
             </div>
-          </div>
+            </div>
         
 
           <div className="field">
