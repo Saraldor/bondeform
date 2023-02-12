@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import { FaUpload } from "react-icons/fa";
@@ -73,15 +75,16 @@ const EditNews = () => {
 
               <label className="label">Nyhet</label>
               <div className="control">
-                <textarea
-                  rows="10"
-                  type="text"
-                  cols="115"
-                  value={text}
-                  onChange={(e) => setText(e.target.value)}
-                  placeholder=""
-                  className="textarea is-info"
-                />
+              <CKEditor
+                editor= {ClassicEditor}
+                data={text}
+                value={text}
+                onChange={(e, editor) => {
+                  const data = editor.getData()
+                  setText(data)}}  
+                placeholder=""
+                className="editor"
+              />
               </div>
 
             
@@ -113,7 +116,7 @@ const EditNews = () => {
                 ) : (
                   ""
                 )}
-             
+             <br/>
               <div className="field">
                 <div className="control">
                   <button type="submit" className="button is-success">

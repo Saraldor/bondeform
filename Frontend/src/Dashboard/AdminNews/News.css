@@ -37,3 +37,10 @@
 .title-head{
     font-size: 18px;
 }
+.editor {
+    margin-right: 10em;
+  }
+  
+  .ck-editor__editable_inline {
+    min-height: 500px;
+  }

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import "./products.css"
+
 import { Link } from "react-router-dom";
 const SingelProduct = () => {
   const [product, setProduct] = useState([]);
@@ -33,7 +34,7 @@ const SingelProduct = () => {
               <div className="box">
            <div>
                 <p className="title is-5">{product.name}</p>
-                <p>{product.info}</p>
+                <div dangerouslySetInnerHTML={{__html:product.info}} />
                 <br/>
                 <div className="title is-5">Pris: {product.pris} kr</div>
                 <div className="space">

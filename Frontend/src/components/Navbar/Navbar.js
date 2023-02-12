@@ -1,6 +1,7 @@
 import React from 'react'
 import logo from "../../img/bondeform.png";
 import axios from 'axios';
+import { MdDashboardCustomize } from 'react-icons/md';
 import { useNavigate, Link } from 'react-router-dom';
 import "./navbar.css";
 
@@ -56,7 +57,7 @@ const Navbar = () => {
           Produkter 
         </a>
         <a href="/atelje" class="navbar-item">
-        Min Ateljé
+        Min ateljé
         </a>
         <a href ="/ater" class="navbar-item">
           Återförsäljare
@@ -69,7 +70,8 @@ const Navbar = () => {
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <Link to="/login">Logga in
+         
+            <Link to="/login"><MdDashboardCustomize/>
                 </Link>
                 </div>
                         </div>

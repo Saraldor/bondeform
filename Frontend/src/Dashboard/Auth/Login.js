@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+
  
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -30,9 +31,11 @@ const Login = () => {
                     <div className="columns is-centered">
                         <div className="column is-4-desktop">
                             <form onSubmit={Auth} className="box">
+                            
                                 <p className="has-text-centered">{msg}</p>
+                               
                                 <div>
-                                    <label className="label">Email eller användarnamn</label>
+                                    <label className="label">Email</label>
                                     <div className="controls">
                                         <input type="text" className="input" placeholder="Username" value={email} onChange={(e) => setEmail(e.target.value)} />
                                     </div>
