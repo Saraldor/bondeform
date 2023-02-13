@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import axios from "axios";
 import {FaUpload} from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
 import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import "./products.css"
-const AddProduct = () => {
-  const [title, setTitle] = useState("");
-  const [info, setInfo] = useState("");
-  const [pris,setPris] = useState("");
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';      
+import { useNavigate } from "react-router-dom";
+import "./Atelje.css"
+const AddAtelje = () => {
+  const [atelje, setAtelje] = useState("");
+  const [text, setText] = useState("");
+  const [videoUrl, setVideoUrl] = useState("");
+
   const [file, setFile] = useState("");
-  const [user_id, setUser_id] = useState("")
   const [preview, setPreview] = useState("");
   const navigate = useNavigate();
 
@@ -20,16 +20,16 @@ const AddProduct = () => {
     setPreview(URL.createObjectURL(image));
   };
 
-  const saveProduct = async (e) => {
+  const saveAtelje = async (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("file", file);
-    formData.append("title", title);
-    formData.append("info", info);
-    formData.append("user_id",user_id)
-    formData.append("pris", pris);
+    formData.append("atelje", atelje);
+    formData.append("videoUrl", videoUrl);
+    formData.append("text", text);
+   
     try {
-      await axios.post("http://localhost:5000/products", formData, {
+      await axios.post("http://localhost:5000/atelje", formData, {
         headers: {
           "Content-type": "multipart/form-data",
         },
@@ -39,6 +39,10 @@ const AddProduct = () => {
       console.log(error);
     }
   };
+  const removeImage = (id) => {
+    
+    setFile((oldState) => oldState.filter((item) => item.id !== id));
+  };
 
   return (
     <div className="container">
@@ -46,47 +50,46 @@ const AddProduct = () => {
     <div className="columns">
       <div className="column is-full">
         <div className="box">
-        <form onSubmit={saveProduct}>
+        <form onSubmit={saveAtelje}>
           <div className="field">
-            <label className="label">Titel</label>
+            <label className="label">Rubrik</label>
             <div className="control">
               <input
                 type="text"
                 className="input"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                placeholder="Namn på produkten"
+                value={atelje}
+                onChange={(e) => setAtelje(e.target.value)}
+                placeholder="Rubrik"
               />
             </div>
-          
-          <label className="label">Pris</label>
+            <label className="label">Länk till Video</label>
             <div className="control">
               <input
                 type="text"
                 className="input"
-                value={pris}
-                onChange={(e) => setPris(e.target.value)}
-                placeholder="Pris utan kr "
-               
+                value={videoUrl}
+                onChange={(e) => setVideoUrl(e.target.value)}
+                placeholder="Rubrik"
               />
             </div>
-            <label className="label">Information</label>
-            <div>
-              <CKEditor
+            <label className="label">Atelje text</label>
+            <div className="control">
+            <CKEditor
                 editor= {ClassicEditor}
-                data={info}
-                
-    
-                value={info}
+                 data={text}
+                value={text}
                 onChange={(e, editor) => {
                   const data = editor.getData()
-                  setInfo(data)}}
-                  className="editor"
+                  setText(data)}}  
+                placeholder=""
+                className="editor"
               />
             </div>
-          </div>
+            </div>
+        
+
           <div className="field">
-            <label className="label">Bild</label>
+            <label className="label">Bild till texten</label>
             <div className="control">
               <div className="file">
                 <label className="file-label">
@@ -108,16 +111,16 @@ const AddProduct = () => {
 
           {preview ? (
             <figure>
-              <img className="image is-128x128"src={preview} alt="förhansgranska" />
+              <img src={preview} alt="förhansgranska" />
             </figure>
           ) : (
             ""
           )}
-<br/>
+          <button onClick={() => removeImage(file.id)}>X</button>
           <div className="field">
             <div className="control">
               <button type="submit" className="button is-success">
-                Spara
+                Spara Atelje text
               </button>
             </div>
           </div>
@@ -130,4 +133,4 @@ const AddProduct = () => {
   );
 };
 
-export default AddProduct;
+export default AddAtelje;

@@ -16,6 +16,9 @@ import AdminNews from "./Dashboard/AdminNews/AdminNews";
 import Register from "./Dashboard/Auth/Register";
 import Login from "./Dashboard/Auth/Login";
 import EditNews from "./Dashboard/AdminNews/EditNews";
+import AddAtelje from "./Dashboard/AdminAtelje/AddAtelje";
+import EditAtelje from "./Dashboard/AdminAtelje/EditAtelje";
+import AdminAtelje from "./Dashboard/AdminAtelje/AdminAtelje";
 import Dashboard from "./Dashboard/Index"
 
 function App() {
@@ -35,8 +38,11 @@ function App() {
         <Route path="/dashboard" element={<Dashboard/>}/>
        <Route path="/news" element={<News/>}/>
        <Route path="/addNews" element={<AddNews/>}/>
+       <Route path="/addAtelje" element={<AddAtelje/>}/>
        <Route path="/adminNews" element={<AdminNews/>}/>
+       <Route path="/adminAtelje" element={<AdminAtelje/>}/>
        <Route path="/editNews/:id" element={<EditNews/>}/>
+       <Route path="/editAtelje/:id" element={<EditAtelje/>}/>
        <Route path="/register" element={<Register/>}/>
    
        <Route path="/login" element={<Login/>}/>

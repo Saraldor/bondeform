@@ -117,7 +117,7 @@ const Main = () => {
             <div class="buttons are-normal">
 <a href="/adminnews" className="button">Nyheter</a>
 <a href="/adminproduct" className="button">Produkter</a>
-<a href="/adminater" className="button">Återförsäljare</a>
+<a href="/adminAtelje" className="button">Ateljé</a>
 <a href="/adminater" className="button">Om mig</a>
 <div class="navbar-end"><div className="h1">{name}</div></div>
 </div>
