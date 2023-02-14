@@ -6,6 +6,7 @@ import cookieParser from "cookie-parser";
 import ProductRoute from "./routes/ProductRoute.js";
 import NewsRoute from "./routes/NewsRoute.js";
 import UserRoute from "./routes/UserRoute.js";
+import AteljeRoute from "./routes/AteljeRoute.js";
 import db from "./config/Database.js";
 dotenv.config();
 const app = express();
@@ -25,5 +26,6 @@ app.use(express.static("public"));
 app.use(ProductRoute);
 app.use(NewsRoute);
 app.use(UserRoute);
+app.use(AteljeRoute);
 
 app.listen(5000, ()=> console.log('Server Up and Running...'));

@@ -1,5 +1,5 @@
 
-import React  from "react";
+import React from "react";
 
 
 import Main from "./Main";
@@ -9,12 +9,12 @@ import Main from "./Main";
 function Index() {
   return (
     <>
-   
-    <Main/>
+
+      <Main />
     </>
- 
-  
-      
+
+
+
   );
 }
 
