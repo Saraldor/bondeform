@@ -127,7 +127,9 @@ const EditProduct = () => {
           ) : (
             ""
           )}
+
 <br/>
+
           <div className="field">
             <div className="control">
              
