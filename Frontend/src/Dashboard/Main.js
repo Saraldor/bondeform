@@ -118,6 +118,7 @@ const Main = () => {
 <a href="/adminnews" className="button">Nyheter</a>
 <a href="/adminproduct" className="button">Produkter</a>
 <a href="/adminAtelje" className="button">Ateljé</a>
+<a href="/adminResale" className="button">Återförsäljare</a>
 <a href="/adminater" className="button">Om mig</a>
 <div class="navbar-end"><div className="h1">{name}</div></div>
 </div>
@@ -127,7 +128,9 @@ const Main = () => {
            <div className="columns">
         <div className="column is-half">
            <div className="box">
+            <div className="admin-front-text">Nyheter</div>
             <table>
+            
             <tr>
               <td><strong>ID</strong></td>
               <td><strong>Rubrik</strong> </td>
@@ -152,6 +155,7 @@ const Main = () => {
             </div>
             <div className="column is-half">
            <div className="box">
+           <div className="admin-front-text">Produkter</div>
            <table>
             <tr>
               <td><strong>ID</strong></td>

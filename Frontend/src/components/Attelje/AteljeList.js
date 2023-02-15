@@ -26,11 +26,11 @@ const AteljeList = () => {
           <div className="columns">
 
             <div class="column is-half">
-              <div className="box">
+            {atelje.url && <div className="box">
                 <img className="image" src={atelje.url} alt="Image" />
-              </div>
-              <div className="box">
-              <div className='player-wrapper'>
+              </div>} 
+              {atelje.videoUrl &&<div className="box">
+               <div className='player-wrapper'>
         <ReactPlayer
           className='react-player'
           url={atelje.videoUrl}
@@ -38,7 +38,7 @@ const AteljeList = () => {
           height='100%'
         />
         </div>
-            </div>
+            </div>}         
             </div>
             <div class="column">
               <div className="box">
