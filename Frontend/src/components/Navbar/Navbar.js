@@ -59,7 +59,7 @@ const Navbar = () => {
         <a href="/atelje" class="navbar-item">
         Min ateljé
         </a>
-        <a href ="/ater" class="navbar-item">
+        <a href ="/resale" class="navbar-item">
           Återförsäljare
         </a>
         <a href="/om" class="navbar-item">

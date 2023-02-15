@@ -8,14 +8,18 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const [msg, setMsg] = useState('');
     const navigate = useNavigate();
+
  
     const Auth = async (e) => {
         e.preventDefault();
+
+
         try {
             await axios.post('http://localhost:5000/login', {
                 email: email,
                 password: password 
             });
+            
             navigate("/dashboard"); 
         } catch (error) {
             if (error.response) {
@@ -37,7 +41,7 @@ const Login = () => {
                                 <div>
                                     <label className="label">Email</label>
                                     <div className="controls">
-                                        <input type="text" className="input" placeholder="Username" value={email} onChange={(e) => setEmail(e.target.value)} />
+                                        <input type="text" className="input" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                                     </div>
                                 </div>
                                 <div>

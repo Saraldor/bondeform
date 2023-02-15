@@ -10,45 +10,57 @@ import Navbar  from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Atelje from "./components/Attelje/Atelje";
 import Om from "./components/Om/Om";
-import Aterforsaljare from "./components/Aterforsaljare/Aterforsaljare";
+import ResaleList from "./components/Aterforsaljare/ResaleList";
 import AdminProduct from "./Dashboard/AdminProduct/AdminProduct";
 import AdminNews from "./Dashboard/AdminNews/AdminNews";
 import Register from "./Dashboard/Auth/Register";
 import Login from "./Dashboard/Auth/Login";
 import EditNews from "./Dashboard/AdminNews/EditNews";
 import AddAtelje from "./Dashboard/AdminAtelje/AddAtelje";
+import AddResale from "./Dashboard/AdminResale/AddResale";
+import EditResale from "./Dashboard/AdminResale/EditResale";
 import EditAtelje from "./Dashboard/AdminAtelje/EditAtelje";
 import AdminAtelje from "./Dashboard/AdminAtelje/AdminAtelje";
+import AdminResale from "./Dashboard/AdminResale/AdminResale";
 import Dashboard from "./Dashboard/Index"
 
 function App() {
   return (
-    <BrowserRouter>
-    <Navbar />
-      <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/products" element={<ProductList/>}/>
-        <Route path="add" element={<AddProduct/>}/>
-        <Route path="edit/:id" element={<EditProduct/>}/>
-        <Route path="singel/:id" element={<SingelProduct/>}/>
-        <Route path="/atelje" element={<Atelje/>}/>
-        <Route path="/om" element={<Om/>}/>
-        <Route path="/ater" element={<Aterforsaljare/>}/>
-        <Route path="/adminproduct" element={<AdminProduct/>}/>
-        <Route path="/dashboard" element={<Dashboard/>}/>
-       <Route path="/news" element={<News/>}/>
-       <Route path="/addNews" element={<AddNews/>}/>
-       <Route path="/addAtelje" element={<AddAtelje/>}/>
-       <Route path="/adminNews" element={<AdminNews/>}/>
-       <Route path="/adminAtelje" element={<AdminAtelje/>}/>
-       <Route path="/editNews/:id" element={<EditNews/>}/>
-       <Route path="/editAtelje/:id" element={<EditAtelje/>}/>
-       <Route path="/register" element={<Register/>}/>
+ <BrowserRouter>
+      <Navbar />
    
-       <Route path="/login" element={<Login/>}/>
-      
-      </Routes>
-      <Footer />   
+
+        <Routes>
+       
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<ProductList />} />
+          <Route path="add" element={<AddProduct />} />
+          <Route path="singel/:id" element={<SingelProduct />} />
+          <Route path="/atelje" element={<Atelje />} />
+          <Route path="/om" element={<Om />} />
+          <Route path="/resale" element={<ResaleList />} />
+          <Route path="/news" element={<News />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          
+          <Route path="edit/:id" element={<EditProduct />} />
+          <Route path="/adminproduct" element={<AdminProduct />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/addNews" element={<AddNews />} />
+          <Route path="/addAtelje" element={<AddAtelje />} />
+          <Route path="/addResale" element={<AddResale />} />
+          <Route path="/adminNews" element={<AdminNews />} />
+          <Route path="/adminAtelje" element={<AdminAtelje />} />
+          <Route path="/adminResale" element={<AdminResale />} />
+          <Route path="/editNews/:id" element={<EditNews />} />
+          <Route path="/editAtelje/:id" element={<EditAtelje />} />
+          <Route path="/editResale/:id" element={<EditResale />} />
+         
+         
+        
+    </Routes>
+  
+    <Footer />  
       </BrowserRouter>
   );
 }
