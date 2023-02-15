@@ -4,13 +4,15 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import { FaUpload } from "react-icons/fa";
+
+
 import "./Atelje.css"
 const EditAtelje = () => {
   const [atelje, setAtelje] = useState("");
   const [text, setText] = useState("");
   const [videoUrl,setVideoUrl] = useState("");
-  const [file, setFile] = useState("");
-  const [preview, setPreview] = useState("");
+  const [file, setFile] = useState();
+  const [preview, setPreview] = useState([]);
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -27,20 +29,23 @@ const EditAtelje = () => {
     setPreview(response.data.url);
   };
 
+  
   const loadImage = (e) => {
     const image = e.target.files[0];
     setFile(image);
     setPreview(URL.createObjectURL(image));
   };
+     
+  
 
-
-  const updateAtelje = async (e) => {
+const updateAtelje = async (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("file", file);
     formData.append("atelje", atelje);
     formData.append("videoUrl", videoUrl);
     formData.append("text", text);
+    
 
     try {
       await axios.patch(`http://localhost:5000/atelje/${id}`, formData, {
@@ -53,7 +58,12 @@ const EditAtelje = () => {
       console.log(error);
     }
   };
-  
+const deleteImg =(e) => {
+  const image = e.target.files;
+  setPreview(image);
+    setFile(URL.revokeObjectURL(image));
+} 
+
   return (
     <div className="container mt-1">
       <div className="box">
@@ -119,20 +129,21 @@ const EditAtelje = () => {
                     </div>
                   </div>
                 </div>
-               
+              
                 {preview ? (
                   <figure>
-                    <img className="image" src={preview} alt="Förhansgranska" />
-               
+                    <img className="image" src={preview} alt="Förhansgranska"/>
+                    <div className="danger-img">
+      <button className="button is-danger" onClick={deleteImg}>Ta bort bild</button> 
+      </div>  
                   </figure>
                 ) : (
                   ""
                 )}
-               
-             <br/>
+              
               <div className="field">
                 <div className="control">
-                  <button type="submit" className="button is-success">
+                  <button type="submit" className="button is-success" >
                     Uppdatera
                   </button>
                 </div>

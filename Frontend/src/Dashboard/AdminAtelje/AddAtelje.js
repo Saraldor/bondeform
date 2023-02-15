@@ -39,10 +39,11 @@ const AddAtelje = () => {
       console.log(error);
     }
   };
-  const removeImage = (id) => {
-    
-    setFile((oldState) => oldState.filter((item) => item.id !== id));
-  };
+  const deleteImg =(e) => {
+    const image = e.target.files;
+    setPreview(image);
+      setFile(URL.revokeObjectURL(image));
+  } 
 
   return (
     <div className="container">
@@ -112,11 +113,14 @@ const AddAtelje = () => {
           {preview ? (
             <figure>
               <img src={preview} alt="förhansgranska" />
+              <div className="danger-img">
+      <button className="button is-danger" onClick={deleteImg}>Ta bort bild</button> 
+      </div>  
             </figure>
           ) : (
             ""
           )}
-          <button onClick={() => removeImage(file.id)}>X</button>
+      
           <div className="field">
             <div className="control">
               <button type="submit" className="button is-success">

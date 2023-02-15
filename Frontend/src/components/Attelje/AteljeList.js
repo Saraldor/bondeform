@@ -29,14 +29,16 @@ const AteljeList = () => {
               <div className="box">
                 <img className="image" src={atelje.url} alt="Image" />
               </div>
+              <div className="box">
               <div className='player-wrapper'>
         <ReactPlayer
           className='react-player'
           url={atelje.videoUrl}
-          width='100%'
+          width='100%'  
           height='100%'
         />
         </div>
+            </div>
             </div>
             <div class="column">
               <div className="box">
