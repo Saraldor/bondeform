@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import Modal from"../Modal/index"
 import "./products.css"
 
 import { Link } from "react-router-dom";
 const SingelProduct = () => {
   const [product, setProduct] = useState([]);
+  const [openModal, setOpenModal] = useState(false);
 
   useEffect(() => {
     getProduct();
@@ -24,12 +26,19 @@ const SingelProduct = () => {
     <div className="container mt-1">
             <div className="box">
       <div className="columns">
+      <Link to="/products" className="button is-info">
+        Tillbaka
+      </Link>
         <div className="column is-half">
-         
-            <img className="image" src={product.url} alt="Image" />
+        <div className="alignCenter">
+
+        <Modal 
+open={openModal} 
+onClose={() => setOpenModal(false)} />
+            <img onClick={() => setOpenModal(true)} className="imgProduct" src={product.url} alt="Image" />
          
         </div>
-
+</div>
         <div class="column">
               <div className="box">
            <div>
@@ -38,9 +47,7 @@ const SingelProduct = () => {
                 <br/>
                 <div className="title is-5">Pris: {product.pris} kr</div>
                 <div className="space">
-               <Link to="/products" className="button is-light">
-        Tillbaka
-      </Link>
+              
       </div>
       </div>
           </div>

@@ -1,0 +1,49 @@
+
+.singel{
+    width: auto;
+    height: auto;
+    max-width: 70%;
+    max-height: 100%;
+    margin:auto;
+    border-radius: 20px;
+   
+    
+}
+
+.list{
+    width: auto;
+    height: auto;
+    max-width: 90%;
+    max-height: 90%;
+    margin:auto;
+    border-style: solid;
+    border-color: #837e78;
+    
+    
+}
+.readmore{
+    border-color: #837e78;
+    width: 50%;
+    height: 15px;
+    text-align: center;
+}
+
+.box{
+    margin-top: 2%;
+}
+.card img{
+  margin-top: 10px; 
+}
+.title-head{
+    font-size: 18px;
+}
+.editor {
+    margin-right: 10em;
+  }
+  
+  .ck-editor__editable_inline {
+    min-height: 200px;
+  }
+  .danger-img{
+    text-align: center;
+  }

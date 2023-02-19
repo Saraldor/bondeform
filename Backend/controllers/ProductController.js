@@ -29,6 +29,7 @@ export const saveProduct = (req, res)=>{
     const name = req.body.title;
     const info = req.body.info;
     const pris = req.body.pris;
+    
     const file = req.files.file;
     const fileSize = file.data.length;
     const ext = path.extname(file.name);
@@ -82,10 +83,11 @@ export const updateProduct = async(req, res)=>{
     const name = req.body.title;
     const info = req.body.info;
     const pris = req.body.pris;
+   
     const url = `${req.protocol}://${req.get("host")}/images/${fileName}`;
     
     try {
-        await Product.update({name: name, info:info, pris:pris,image: fileName, url: url},{
+        await Product.update({name: name, info:info, pris:pris, image: fileName, url: url},{
             where:{
                 id: req.params.id
             }

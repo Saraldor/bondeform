@@ -1,17 +1,15 @@
 import React, { useState } from "react";
 import axios from "axios";
 import {FaUpload} from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
-
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import "./products.css"
-const AddProduct = () => {
+import { useNavigate } from "react-router-dom";
+import "./about.css"
+const AddAbout = () => {
   const [title, setTitle] = useState("");
-  const [info, setInfo] = useState("");
-  const [pris,setPris] = useState("");
+  const [text, setText] = useState("");
+
   const [file, setFile] = useState("");
- 
   const [preview, setPreview] = useState("");
   const navigate = useNavigate();
 
@@ -21,16 +19,15 @@ const AddProduct = () => {
     setPreview(URL.createObjectURL(image));
   };
 
-  const saveProduct = async (e) => {
+  const saveAbout = async (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("file", file);
     formData.append("title", title);
-    formData.append("info", info);
-    
-    formData.append("pris", pris);
+    formData.append("text", text);
+   
     try {
-      await axios.post("http://localhost:5000/products", formData, {
+      await axios.post("http://localhost:5000/about", formData, {
         headers: {
           "Content-type": "multipart/form-data",
         },
@@ -40,14 +37,18 @@ const AddProduct = () => {
       console.log(error);
     }
   };
-
+  const deleteImg =(e) => {
+    const image = e.target.files;
+    setPreview(image);
+      setFile(URL.revokeObjectURL(image));
+  } 
   return (
     <div className="container">
     <div className="box">
     <div className="columns">
       <div className="column is-full">
         <div className="box">
-        <form onSubmit={saveProduct}>
+        <form onSubmit={saveAbout}>
           <div className="field">
             <label className="label">Titel</label>
             <div className="control">
@@ -56,38 +57,27 @@ const AddProduct = () => {
                 className="input"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                placeholder="Namn på produkten"
+                placeholder="Rubrik på nyheten"
               />
             </div>
-          
-          <label className="label">Pris</label>
+            <label className="label">Om dig</label>
             <div className="control">
-              <input
-                type="text"
-                className="input"
-                value={pris}
-                onChange={(e) => setPris(e.target.value)}
-                placeholder="Pris utan kr "
-               
-              />
-            </div>
-            <label className="label">Information</label>
-            <div>
-              <CKEditor
+            <CKEditor
                 editor= {ClassicEditor}
-                data={info}
-                
-    
-                value={info}
+                data={text}
+                value={text}
                 onChange={(e, editor) => {
                   const data = editor.getData()
-                  setInfo(data)}}
-                  className="editor"
+                  setText(data)}}  
+                placeholder=""
+                className="editor"
               />
             </div>
-          </div>
+            </div>
+        
+
           <div className="field">
-            <label className="label">Bild</label>
+            <label className="label">Bild på dig</label>
             <div className="control">
               <div className="file">
                 <label className="file-label">
@@ -109,16 +99,18 @@ const AddProduct = () => {
 
           {preview ? (
             <figure>
-              <img className="image is-128x128"src={preview} alt="förhansgranska" />
+              <img src={preview} alt="förhansgranska" />
+              <div className="danger-img">
+      <button className="button is-danger" onClick={deleteImg}>Ta bort bild</button> 
+      </div>  
             </figure>
           ) : (
             ""
           )}
-<br/>
           <div className="field">
             <div className="control">
               <button type="submit" className="button is-success">
-                Spara
+                Spara nyhet
               </button>
             </div>
           </div>
@@ -131,4 +123,4 @@ const AddProduct = () => {
   );
 };
 
-export default AddProduct;
+export default AddAbout;

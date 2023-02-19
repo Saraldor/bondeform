@@ -4,7 +4,7 @@ import {FaUpload} from "react-icons/fa";
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';      
 import { useNavigate } from "react-router-dom";
-import "./Atelje.css"
+import "./Resale.css"
 const AddResale = () => {
   const [name, setName] = useState("");
   const [text, setText] = useState("");

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./aterforsaljare.css";
-import { FaFacebookSquare, FaInstagramSquare } from 'react-icons/fa';
+import { FaFacebookSquare, FaInstagramSquare, FaGlobe } from 'react-icons/fa';
 
 const ResaleList = () => {
 
@@ -42,8 +42,9 @@ const ResaleList = () => {
                      <div className="social">
                      {resale.instagram && <a href={resale.instagram}><FaInstagramSquare size={28}/></a>}
                       {resale.facebook && <a href={resale.facebook}><FaFacebookSquare size={28}/></a>}
+                      {resale.hompage &&<a href={resale.hompage}><FaGlobe size={28} /></a>}
                       </div>
-                      {resale.hompage &&<div className="ater-text"><a href={resale.hompage}>Hemsida</a></div>}
+                    
                       
                     </div>
 

@@ -8,6 +8,7 @@ import NewsRoute from "./routes/NewsRoute.js";
 import UserRoute from "./routes/UserRoute.js";
 import AteljeRoute from "./routes/AteljeRoute.js";
 import ResaleRoute from "./routes/ResaleRoute.js";
+import AboutRoute from "./routes/AboutRoute.js";
 import db from "./config/Database.js";
 dotenv.config();
 const app = express();
@@ -29,5 +30,6 @@ app.use(NewsRoute);
 app.use(UserRoute);
 app.use(AteljeRoute);
 app.use(ResaleRoute);
+app.use(AboutRoute);
 
 app.listen(5000, ()=> console.log('Bondens server är nu igång...'));

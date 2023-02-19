@@ -113,15 +113,26 @@ const Main = () => {
             <div className="box">
             <div className="box">
    
-    <strong>Kontrollpanel</strong>
+    <strong>Kontrollpanel</strong> 
+    <div class="navbar-end">Inloggad: {name}</div>
             <div class="buttons are-normal">
 <a href="/adminnews" className="button">Nyheter</a>
 <a href="/adminproduct" className="button">Produkter</a>
 <a href="/adminAtelje" className="button">Ateljé</a>
 <a href="/adminResale" className="button">Återförsäljare</a>
-<a href="/adminater" className="button">Om mig</a>
-<div class="navbar-end"><div className="h1">{name}</div></div>
+<a href="/adminAbout" className="button">Om mig</a>
+<div class="navbar-end">
+<div class="select">
+  <select>
+    <option>Välj ett teman</option>
+    <option>Sommar</option>
+    <option>Vinter</option>
+    <option>Vår</option>
+    <option>Höst</option>
+  </select>
+</div></div>
 </div>
+
 
  
                 </div>
