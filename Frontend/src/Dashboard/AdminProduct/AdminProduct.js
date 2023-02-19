@@ -46,6 +46,7 @@ const AdminProduct = () => {
             <tr>
               <td><strong>ID</strong></td>
               <td><strong>Namn</strong> </td>
+             
               <td><strong>Pris</strong>  </td>
               <td>  </td>
               <td> </td>
@@ -54,7 +55,9 @@ const AdminProduct = () => {
               <tr key={product.id}>
                 <td>{product.id}</td>
                 <td>{product.name} </td>
+                
                 <td> {product.pris} kr </td>
+                
                 <td> <MdDelete className="deletea" onClick={() => deleteProduct(product.id)} /> </td>
                 <td> <Link to={`/edit/${product.id}`} ><RxUpdate className="update" /> </Link>  </td>
 

@@ -4,74 +4,58 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import { FaUpload } from "react-icons/fa";
-
-
-import "./Resale.css"
-const EditResale = () => {
-  const [name, setName] = useState("");
+import "./about.css"
+const EditAbout = () => {
+  const [title, setTitle] = useState("");
   const [text, setText] = useState("");
-  const [instagram,setInstagram] = useState("");
-  const [facebook,setFacebook] = useState("");
-  const [hompage,setHompage] = useState("");
-  const [file, setFile] = useState();
-  const [preview, setPreview] = useState([]);
+
+  const [file, setFile] = useState("");
+  const [preview, setPreview] = useState("");
   const { id } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
-    getResaleById();
+    getAboutById();
   }, []);
 
-  const getResaleById = async () => {
-    const response = await axios.get(`http://localhost:5000/resale/${id}`);
-    setName(response.data.name);
+  const getAboutById = async () => {
+    const response = await axios.get(`http://localhost:5000/about/${id}`);
+    setTitle(response.data.title);
     setText(response.data.text);
-    setInstagram(response.data.instagram);
-    setFacebook(response.data.facebook);
-    setHompage(response.data.hompage);
-   
+
     setFile(response.data.image);
     setPreview(response.data.url);
   };
 
-  
   const loadImage = (e) => {
     const image = e.target.files[0];
     setFile(image);
     setPreview(URL.createObjectURL(image));
   };
-     
-  
 
-const updateResale = async (e) => {
+  const updateAbout = async (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("file", file);
-    formData.append("name", name);
+    formData.append("title", title);
     formData.append("text", text);
-    formData.append("instagram", instagram);
-    formData.append("facebook", facebook);
-    formData.append("hompage", hompage);
-    
-    
 
     try {
-      await axios.patch(`http://localhost:5000/resale/${id}`, formData, {
+      await axios.patch(`http://localhost:5000/about/${id}`, formData, {
         headers: {
           "Content-type": "multipart/form-data",
         },
       });
-      navigate("/adminResale");
+      navigate("/adminAbout");
     } catch (error) {
       console.log(error);
     }
   };
-const deleteImg =(e) => {
-  const image = e.target.files;
-  setPreview(image);
-    setFile(URL.revokeObjectURL(image));
-} 
-
+  const deleteImg =(e) => {
+    const image = e.target.files;
+    setPreview(image);
+      setFile(URL.revokeObjectURL(image));
+  } 
   return (
     <div className="container mt-1">
       <div className="box">
@@ -79,51 +63,21 @@ const deleteImg =(e) => {
 <div className="box">
           <div className="column is-full">
 
-            <form onSubmit={updateResale}>
+            <form onSubmit={updateAbout}>
               <div className="field">
-                * Obligatoriska
-                <label className="label">Förtegas namn *</label>
+                <label className="label">Titel</label>
                 <div className="control">
                   <input
                     type="text"
                     className="input"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    placeholder="Företagets namn"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                    placeholder="Titel"
                   />
                 </div>
               </div>
-              <label className="label">Instagram</label>
-                <div className="control">
-                  <input
-                    type="text"
-                    className="input"
-                    value={instagram}
-                    onChange={(e) => setInstagram(e.target.value)}
-                    placeholder="https://"
-                  />
-                </div>
-                <label className="label">Facebook</label>
-                <div className="control">
-                  <input
-                    type="text"
-                    className="input"
-                    value={facebook}
-                    onChange={(e) => setFacebook(e.target.value)}
-                    placeholder="https://"
-                  />
-                </div>
-                <label className="label">Hemsida</label>
-                <div className="control">
-                  <input
-                    type="text"
-                    className="input"
-                    value={hompage}
-                    onChange={(e) => setHompage(e.target.value)}
-                    placeholder="https://"
-                  />
-                </div>
-              <label className="label">Kort info om företaget *</label>
+
+              <label className="label">Uppdater din text</label>
               <div className="control">
               <CKEditor
                 editor= {ClassicEditor}
@@ -139,7 +93,7 @@ const deleteImg =(e) => {
 
             
                 <div className="field">
-                  <label className="label">Bild *</label>
+                  <label className="label">Bild</label>
                   <div className="control">
                     <div className="file">
                       <label className="file-label">
@@ -158,22 +112,22 @@ const deleteImg =(e) => {
                     </div>
                   </div>
                 </div>
-              
+
                 {preview ? (
                   <figure>
-                    <img className="image" src={preview} alt="Förhansgranska"/>
-                    <div className="danger-img">
+                    <img className="image" src={preview} alt="Förhansgranska" />
+                   <div className="danger-img">
       <button className="button is-danger" onClick={deleteImg}>Ta bort bild</button> 
       </div>  
                   </figure>
                 ) : (
                   ""
                 )}
-              
+             <br/>
               <div className="field">
                 <div className="control">
-                  <button type="submit" className="button is-success" >
-                    Uppdatera
+                  <button type="submit" className="button is-success">
+                    Uppdater din nyhet
                   </button>
                 </div>
               </div>
@@ -190,4 +144,4 @@ const deleteImg =(e) => {
   );
 };
 
-export default EditResale;
+export default EditAbout;

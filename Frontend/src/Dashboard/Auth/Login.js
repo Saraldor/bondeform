@@ -2,18 +2,19 @@ import React, { useState } from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
- 
+
+  
+
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [msg, setMsg] = useState('');
     const navigate = useNavigate();
-
- 
+    
     const Auth = async (e) => {
         e.preventDefault();
-
-
+      
+    
         try {
             await axios.post('http://localhost:5000/login', {
                 email: email,
@@ -27,7 +28,7 @@ const Login = () => {
             }
         }
     }
- 
+
     return (
         <div className="container">
         <div className="box">
@@ -60,6 +61,5 @@ const Login = () => {
             </div>
         </div>
     )
-}
- 
+    }
 export default Login

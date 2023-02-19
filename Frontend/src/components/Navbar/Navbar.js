@@ -20,7 +20,7 @@ const Navbar = () => {
             console.log(error);
         }
     }
-  
+
     return (
 
       
@@ -62,7 +62,7 @@ const Navbar = () => {
         <a href ="/resale" class="navbar-item">
           Återförsäljare
         </a>
-        <a href="/om" class="navbar-item">
+        <a href="/about" class="navbar-item">
           Om mig
         </a>
       </div>
@@ -71,7 +71,7 @@ const Navbar = () => {
         <div class="navbar-item">
           <div class="buttons">
          
-            <Link to="/login"><MdDashboardCustomize/>
+            <Link to="/dashboard"><MdDashboardCustomize/>
                 </Link>
                 </div>
                         </div>
